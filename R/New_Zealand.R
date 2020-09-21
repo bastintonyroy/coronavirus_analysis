@@ -7,3 +7,9 @@ data %>%
   mutate(Date = dmy(dateRep)) %>% 
   ggplot(aes(x = Date, y = cases)) +
   geom_line()
+
+data %>% 
+  filter(countriesAndTerritories %in% c("Australia","New_Zealand")) %>% 
+  mutate(dateRep = dmy(dateRep)) %>% 
+  ggplot(aes(x = dateRep, y = cases)) +
+  geom_line(aes(col = countriesAndTerritories))
